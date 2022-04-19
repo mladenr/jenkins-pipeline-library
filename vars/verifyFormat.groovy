@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 void call() {
     echo "VerifyFormat......."
     container('build') {
