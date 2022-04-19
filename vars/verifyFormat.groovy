@@ -1,7 +1,7 @@
 void call() {
-    println 'VerifyFormat.......'
+    echo "VerifyFormat......."
     container('build') {
         sh './gradlew --stacktrace --parallel spotlessCheck'
     }
-    println 'VerifyFormatFinished.......'
+    echo "VerifyFormatFinished......."
 }
