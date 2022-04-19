@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-void call() {
+void call(parameters) {
     echo "VerifyFormat......."
     container('build') {
         sh './gradlew --stacktrace --parallel spotlessCheck'
