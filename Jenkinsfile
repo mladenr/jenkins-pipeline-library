@@ -1,32 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout') {
+    stage('Main') {
       parallel {
         stage('Checkout') {
           steps {
             echo 'Checkout code...'
           }
         }
-
-        stage('SonarQube Scan') {
-          steps {
-            echo 'Step: SonarQube Scan'
-          }
-        }
-
-      }
-    }
-
-    stage('Build') {
-      steps {
-        echo 'Step: Build code...'
-      }
-    }
-
-    stage('Unit Tests') {
-      steps {
-        echo 'Step: Unit Tests...'
       }
     }
     
@@ -54,5 +35,18 @@ pipeline {
         }
       }
     }
+
+    stage('Build') {
+      steps {
+        echo 'Step: Build code...'
+      }
+    }
+
+    stage('Unit Tests') {
+      steps {
+        echo 'Step: Unit Tests...'
+      }
+    }
+    
   }
 }
