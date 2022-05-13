@@ -26,7 +26,6 @@ pipeline {
 
     stage('Unit Tests') {
       steps {
-        timestamps()
         echo 'Step: Unit Tests...'
       }
     }
