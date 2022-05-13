@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Checkout') {
-      steps {
-        echo 'Checkout code...'
+      parallel {
+        stage('Checkout') {
+          steps {
+            echo 'Checkout code...'
+          }
+        }
+
+        stage('SonarQube Scan') {
+          steps {
+            echo 'Step: SonarQube Scan'
+          }
+        }
+
       }
     }
 
