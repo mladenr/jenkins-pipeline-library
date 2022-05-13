@@ -30,16 +30,26 @@ pipeline {
       }
     }
     
-    stage('Parellel') {
+    stage('Scans') {
       parallel {
-        stage('Stage1') {
+        stage('SonarQube Scan') {
           steps {
-            echo 'Stage1'
+            echo 'SonarQube Scan'
           }
         }
-        stage('Stage2') {
+        stage('BlackDuck Scan') {
           steps {
-            echo 'Stage2'
+            echo 'BlackDuck Scan'
+          }
+        }
+        stage('Fortify Scan') {
+          steps {
+            echo 'Fortify Scan'
+          }
+        }
+        stage('WhiteSource Scan') {
+          steps {
+            echo 'WhiteSource Scan'
           }
         }
       }
