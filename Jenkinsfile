@@ -29,13 +29,15 @@ pipeline {
         echo 'Step: Unit Tests...'
       }
     }
-
-    parallel {
-      stage('Stage1') {
-        echo 'Stage1'
-      }
-      stage('Stage2') {
-        echo 'Stage2'
+    
+    stage('Parellel') {
+      parallel {
+        stage('Stage1') {
+          echo 'Stage1'
+        }
+        stage('Stage2') {
+          echo 'Stage2'
+        }
       }
     }
   }
