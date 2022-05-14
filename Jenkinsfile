@@ -1,17 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Main') {
 
-        stage('Checkout') {
-          steps {
-            parallel {
-              one: {  echo 'Checkout code 1...' },
-              two: {  echo 'Checkout code 2...' }
-            }
-          }
+    stage('Checkout') {
+      steps {
+        parallel {
+          one: {  echo 'Checkout code 1...' },
+          two: {  echo 'Checkout code 2...' }
         }
-   
+      }
     }
 
     stage('Build') {
