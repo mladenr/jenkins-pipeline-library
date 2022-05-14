@@ -3,7 +3,7 @@ pipeline {
   stages {
 
     stage('Checkout') {
-      steps {
+      stages {
         parallel {
           one: {  echo 'Checkout code 1...' }
           two: {  echo 'Checkout code 2...' }
