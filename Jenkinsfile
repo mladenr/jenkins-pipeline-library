@@ -3,19 +3,27 @@ pipeline {
   stages {
     
     stage('Checkout') {
-    
+      steps {
+        echo 'Checkout...' 
+      }
     }
     
     stage('Verify Format') {
-      
+      steps {
+        echo 'Verify Format...' 
+      }
     }
     
     stage('Build & Unit Tests') {
-      
+      steps {
+        echo 'Build & Unit Tests...' 
+      }
     }
     
     stage('Integration Tests') {
-      
+      steps {
+        echo 'Integration Tests...' 
+      }
     }
 
     stage('Checkout') {
