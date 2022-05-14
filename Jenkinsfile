@@ -27,12 +27,18 @@ pipeline {
     }
     
     stage('Create Docker Image') {
+      when {
+        branch 'develop'
+      }
       steps {
         echo 'Create Docker image...' 
       }
     }
     
     stage('Push Docker Image') {
+      when {
+        branch 'develop'
+      }
       steps {
         echo 'Push Docker image...' 
       }
@@ -60,25 +66,6 @@ pipeline {
       steps {
         echo 'Smoke Tests...' 
       }
-    }
-
-    stage('Checkout222') {
-      
-      parallel {
-        stage('Stage1') {
-          steps {
-            echo 'Checkout code 1...'
-          }
-        }
-        
-        stage('Stage2') {
-          steps {
-            echo 'Checkout code 2...'
-          }
-        }
-        
-      }
-      
     }
     
     stage('Scans') {
