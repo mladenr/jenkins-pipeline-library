@@ -41,9 +41,16 @@ pipeline {
         
         stage('Deployment') {
           parallel {
-            stage('Deployment to Test Environment') {
-              steps {
-                echo 'Deployment to Test Environment...' 
+            stages {
+              stage('Deployment to Test Environment') {
+                steps {
+                  echo 'Deployment to Test Environment...' 
+                }
+              }
+              stage('Acceptance Tests') {
+                steps {
+                  echo 'Acceptance Tests...' 
+                }
               }
             }
 
