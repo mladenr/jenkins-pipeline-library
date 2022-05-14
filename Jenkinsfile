@@ -26,7 +26,7 @@ pipeline {
       }
     }
 
-    stage('Checkout') {
+    stage('Checkout222') {
       
       parallel {
         stage('Stage1') {
