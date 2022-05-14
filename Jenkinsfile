@@ -38,6 +38,20 @@ pipeline {
             echo 'Push Docker Image...' 
           }
         }
+        
+        parallel {
+          stage('Deployment to Test Environment') {
+            steps {
+              echo 'Deployment to Test Environment...' 
+            }
+          }
+          
+          stage('Deployment to Production Environment') {
+            steps {
+              echo 'Deployment to Production Environment...' 
+            }
+          }
+        }
       }
     }
 
