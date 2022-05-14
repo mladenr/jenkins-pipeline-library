@@ -26,10 +26,21 @@ pipeline {
       }
     }
     
-    stage('Deploy') {
+    stage('Deploy to Test Environment') {
+      when {
+        branch 'develop'
+      }
       steps {
         echo "Create Docker Image..." 
-        echo "Create Docker Image 3" 
+      }
+    }
+    
+    stage('Deploy to Production Environment') {
+      when {
+        branch 'master'
+      }
+      steps {
+        echo "Create Docker Image..." 
       }
     }
 
