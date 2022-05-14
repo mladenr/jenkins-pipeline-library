@@ -41,7 +41,7 @@ pipeline {
         
         stage('Deployment') {
           parallel {
-            stages {
+            stage {
               stage('Deployment to Test Environment') {
                 steps {
                   echo 'Deployment to Test Environment...' 
