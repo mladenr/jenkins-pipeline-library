@@ -26,6 +26,18 @@ pipeline {
       }
     }
     
+    stage('Create Docker Image') {
+      steps {
+        echo 'Create Docker image...' 
+      }
+    }
+    
+    stage('Push Docker Image') {
+      steps {
+        echo 'Push Docker image...' 
+      }
+    }
+    
     stage('Deploy to Test Environment') {
       when {
         branch 'develop'
@@ -41,6 +53,12 @@ pipeline {
       }
       steps {
         echo "Create Docker Image..." 
+      }
+    }
+    
+    stage('Smoke Tests') {
+      steps {
+        echo 'Smoke Tests...' 
       }
     }
 
@@ -61,18 +79,6 @@ pipeline {
         
       }
       
-    }
-
-    stage('Build') {
-      steps {
-        echo 'Step: Build code...'
-      }
-    }
-
-    stage('Unit Tests') {
-      steps {
-        echo 'Step: Unit Tests...'
-      }
     }
     
     stage('Scans') {
