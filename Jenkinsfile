@@ -25,6 +25,21 @@ pipeline {
         echo 'Integration Tests...' 
       }
     }
+    
+    stage('Deploy') {
+      stages {
+        stage('Create Docker Image') {
+          steps {
+            echo 'Create Docker Image...' 
+          }
+        }
+        stage('Push Docker Image') {
+          steps {
+            echo 'Push Docker Image...' 
+          }
+        }
+      }
+    }
 
     stage('Checkout222') {
       
