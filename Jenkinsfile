@@ -27,32 +27,9 @@ pipeline {
     }
     
     stage('Deploy') {
-      stages {
-        stage('Create Docker Image') {
-          steps {
-            echo 'Create Docker Image...' 
-          }
-        }
-        stage('Push Docker Image') {
-          steps {
-            echo 'Push Docker Image...' 
-          }
-        }
-        
-        stage('Deployment') {
-          parallel {
-              stage('Deployment to Test Environment') {
-                steps {
-                  echo 'Deployment to Test Environment...' 
-                }
-              }
-              stage('Acceptance Tests') {
-                steps {
-                  echo 'Acceptance Tests...' 
-                }
-              }
-          }
-        }
+      steps {
+        a: { echo 'Create Docker Image...' },
+        b: {echo 'Create Docker Image 3'}
       }
     }
 
