@@ -1,6 +1,22 @@
 pipeline {
   agent any
   stages {
+    
+    stage('Checkout') {
+    
+    }
+    
+    stage('Verify Format') {
+      
+    }
+    
+    stage('Build & Unit Tests') {
+      
+    }
+    
+    stage('Integration Tests') {
+      
+    }
 
     stage('Checkout') {
       
