@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Main') {
-      parallel {
+
         stage('Checkout') {
           steps {
             parallel {
@@ -11,7 +11,7 @@ pipeline {
             }
           }
         }
-      }
+   
     }
 
     stage('Build') {
