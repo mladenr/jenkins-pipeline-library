@@ -28,8 +28,8 @@ pipeline {
     
     stage('Deploy') {
       steps {
-        a: { echo "Create Docker Image..." }
-        b: { echo "Create Docker Image 3" }
+        echo "Create Docker Image..." 
+        echo "Create Docker Image 3" 
       }
     }
 
