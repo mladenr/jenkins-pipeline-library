@@ -39,6 +39,26 @@ pipeline {
           }
         }
     
+    stage('Code Coverage') {
+      steps {
+        echo 'Code Coverage...' 
+      }
+    }
+    
+    stage('Static Code Analysis') {
+      steps {
+        echo 'Static Code Analysis...' 
+      }
+    }
+    
+    stage('SonarQube') {
+      steps {
+        echo 'SonarQube...' 
+      }
+    }
+    
+    
+    
     stage('Create Docker Image') {
       when {
         branch 'develop'
