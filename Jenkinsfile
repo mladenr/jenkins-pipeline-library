@@ -1,16 +1,10 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-    text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-    booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-    choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-    password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    booleanParam(name: 'SKIP_COMMIT_STAGES', defaultValue: false, description: 'Skip commit stages...')
   }
   
   stages {
-    stage("Commit Pipeline") {
-      parallel {
         stage('Checkout') {
           steps {
             echo 'Checkout...' 
@@ -18,31 +12,32 @@ pipeline {
         }
 
         stage('Verify Format') {
-          when { expression { return params.TOGGLE } } 
+          when { expression { return params.SKIP_COMMIT_STAGES } } 
           steps {
             echo 'Verify Format...' 
           }
         }
 
         stage('Build') {
+          when { expression { return params.SKIP_COMMIT_STAGES } } 
           steps {
             echo 'Build...' 
           }
         }
 
         stage('Unit Tests') {
+          when { expression { return params.SKIP_COMMIT_STAGES } } 
           steps {
             echo 'Unit Tests...' 
           }
         }
 
         stage('Integration Tests') {
+          when { expression { return params.SKIP_COMMIT_STAGES } } 
           steps {
             echo 'Integration Tests...' 
           }
         }
-      }
-    }
     
     stage('Create Docker Image') {
       when {
