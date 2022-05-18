@@ -17,6 +17,7 @@ pipeline {
     }
     
     stage('Verify Format') {
+      when { expression { return params.TOGGLE } } 
       steps {
         echo 'Verify Format...' 
       }
