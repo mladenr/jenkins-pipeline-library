@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-    booleanParam(name: 'SKIP_COMMIT_STAGES', defaultValue: false, description: 'Skip commit stages...')
+    booleanParam(name: 'EXECUTE_COMMIT_STAGES', defaultValue: true, description: 'Skip commit stages...')
   }
   
   stages {
@@ -12,28 +12,28 @@ pipeline {
         }
 
         stage('Verify Format') {
-          when { expression { return params.SKIP_COMMIT_STAGES } } 
+          when { expression { return params.EXECUTE_COMMIT_STAGES } } 
           steps {
             echo 'Verify Format...' 
           }
         }
 
         stage('Build') {
-          when { expression { return params.SKIP_COMMIT_STAGES } } 
+          when { expression { return params.EXECUTE_COMMIT_STAGES } } 
           steps {
             echo 'Build...' 
           }
         }
 
         stage('Unit Tests') {
-          when { expression { return params.SKIP_COMMIT_STAGES } } 
+          when { expression { return params.EXECUTE_COMMIT_STAGES } } 
           steps {
             echo 'Unit Tests...' 
           }
         }
 
         stage('Integration Tests') {
-          when { expression { return params.SKIP_COMMIT_STAGES } } 
+          when { expression { return params.EXECUTE_COMMIT_STAGES } } 
           steps {
             echo 'Integration Tests...' 
           }
