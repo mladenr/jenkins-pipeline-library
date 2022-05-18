@@ -9,35 +9,36 @@ pipeline {
   }
   
   stages {
-    
-    stage('Checkout') {
-      steps {
-        echo 'Checkout...' 
+    stage("Commit Pipeline") {
+      stage('Checkout') {
+        steps {
+          echo 'Checkout...' 
+        }
       }
-    }
-    
-    stage('Verify Format') {
-      when { expression { return params.TOGGLE } } 
-      steps {
-        echo 'Verify Format...' 
+
+      stage('Verify Format') {
+        when { expression { return params.TOGGLE } } 
+        steps {
+          echo 'Verify Format...' 
+        }
       }
-    }
-    
-    stage('Build') {
-      steps {
-        echo 'Build...' 
+
+      stage('Build') {
+        steps {
+          echo 'Build...' 
+        }
       }
-    }
-    
-    stage('Unit Tests') {
-      steps {
-        echo 'Unit Tests...' 
+
+      stage('Unit Tests') {
+        steps {
+          echo 'Unit Tests...' 
+        }
       }
-    }
-    
-    stage('Integration Tests') {
-      steps {
-        echo 'Integration Tests...' 
+
+      stage('Integration Tests') {
+        steps {
+          echo 'Integration Tests...' 
+        }
       }
     }
     
