@@ -14,9 +14,15 @@ pipeline {
       }
     }
     
-    stage('Build & Unit Tests') {
+    stage('Build') {
       steps {
-        echo 'Build & Unit Tests...' 
+        echo 'Build...' 
+      }
+    }
+    
+    stage('Unit Tests') {
+      steps {
+        echo 'Unit Tests...' 
       }
     }
     
