@@ -10,6 +10,21 @@ pipeline {
             echo 'Checkout...' 
           }
         }
+    
+    stage('sequestial_stage') {
+            stages {
+                stage('seq_one') {
+                    steps {
+                        echo 'a'
+                    }
+                }
+                stage('seq_two') {
+                    steps {
+                        echo 'b'
+                    }
+                }
+            }
+        }
 
         stage('Verify Format') {
           when { expression { return params.EXECUTE_COMMIT_STAGES } } 
